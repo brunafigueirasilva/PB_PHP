@@ -15,12 +15,16 @@
                 <th>Quantidade</th>
                 <th>Data</th>
             </tr>
-            <?php foreach($produtos as $p): ?>
+            <?php foreach($produtos as $id => $p): ?>
                 <tr>
                     <td><?= $p['nome']?></td>
                     <td><?= $p['descricao']?></td>
                     <td><?= $p['quantidade']?></td>
-                    <td><?= $p['data']?></td>               
+                    <td><?= $p['data']?></td>   
+                    <td>
+                          <a href="/PB_PHP/AtividadeMVC01/produto/telaEditar?id=<?= $id ?>">Editar</a>
+                          <a href="/PB_PHP/AtividadeMVC01/produto/excluir?id=<?= $id ?>">Excluir</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </table>    

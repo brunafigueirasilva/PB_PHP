@@ -30,4 +30,28 @@ class Produto {
         // Retorna a lista de produtos
         return $_SESSION['produtos'] ?? [];
     }
+
+    public static function buscar($id) {
+        // Retorna a edição de um usuario
+        // Select * from usuario where id= $id;
+        return $_SESSION['produtos'] [$id] ?? null;
+    }
+
+    public function atualizar($id){
+        if(isset($_SESSION['produtos'][$id])) {// Verificar se o usuário existe
+        $_SESSION['produtos'][$id] = [ // Atualiza os novos dados
+            'nome' => $this->nome,
+            'descricao' => $this->descricao,
+            'quantidade' => $this->quantidade,
+            'data' => $this->data
+        ];
+    }
+}
+
+    public static function excluir($id){
+        if(isset($_SESSION['produtos'][$id])) {
+            unset($_SESSION['produtos'][$id]);
+        }
+    }
+
 }
