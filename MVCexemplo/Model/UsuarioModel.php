@@ -32,14 +32,18 @@ class Usuario{
     }
 
     public function atualizar($id){
-        if(isset($_SESSION['usuarios'][$id])) {// Verificar se o usuário existe
-        $_SESSION['usuarios'][$id] = [ // Atualiza os novos dados
-            'nome' => $this->nome,
-            'email' => $this->email
-        ];
+        if(isset($_SESSION['usuarios'][$id])) { // Verificar se o usuário existe
+            $_SESSION['usuarios'][$id] = [ // Atualiza os novos dados
+                'nome' => $this->nome,
+                'email' => $this->email
+            ];
+        }
+    }
+
+    public static function excluir($id){
+        if(isset($_SESSION['usuarios'][$id])){ // Verificar se o usuário existe
+            unset($_SESSION['usuarios'][$id]); // Remove o usuário
+        }
     }
 }
 
-}
-
-?>
